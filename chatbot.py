@@ -55,7 +55,7 @@ def generate_response(query):
 
         response = client.chat.completions.create(
 
-            model="openai/gpt-oss-20b:free",
+            model="qwen/qwen-2.5-7b-instruct:free",
             messages=[
                 {
                     "role": "user",
