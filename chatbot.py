@@ -45,35 +45,48 @@ def generate_response(query):
     retrieved_docs = retrieve_context(query)
 
     context = "\n\n".join(
-
         [doc.page_content for doc in retrieved_docs]
     )
 
     prompt = build_prompt(query, context)
 
-    try:
+    models = [
+        "microsoft/phi-3-mini-128k-instruct:free",
+        "openai/gpt-oss-20b:free",
+        "google/gemma-2-9b-it:free"
+    ]
 
-        response = client.chat.completions.create(
+    for model_name in models:
 
-            model="qwen/qwen-2.5-7b-instruct:free",
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
-        )
+        try:
 
-        answer = response.choices[0].message.content
+            response = client.chat.completions.create(
 
-        return answer, retrieved_docs
+                model=model_name,
 
-    except Exception as e:
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
+            )
 
-        error_message = f"Error generating response: {str(e)}"
+            answer = response.choices[0].message.content
 
-        return error_message, retrieved_docs
+            return answer, retrieved_docs
 
+        except Exception as e:
+
+            print(f"Model failed: {model_name}")
+            print(str(e))
+
+            continue
+
+    return (
+        "All free models are currently unavailable. Please try again later.",
+        retrieved_docs
+    )
 if __name__ == "__main__":
 
     query = "What is the company leave policy?"
