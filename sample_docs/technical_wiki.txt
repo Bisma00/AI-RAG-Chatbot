@@ -1,0 +1,7 @@
+The company uses GitHub for version control and collaboration.
+
+Python and JavaScript are primary development languages.
+
+All production deployments are monitored using cloud dashboards.
+
+Employees should follow clean code practices and documentation standards.
