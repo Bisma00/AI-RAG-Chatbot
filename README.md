@@ -431,19 +431,6 @@ Possible future enhancements include:
 
 ---
 
-# 🎥 Demo Video
-
-The demo video demonstrates:
-
-- document ingestion pipeline
-- vector database creation
-- semantic retrieval
-- query handling
-- response generation
-- Streamlit deployment walkthrough
-
----
-
 # 👨‍💻 Author
 
 ## Bisma Imran
