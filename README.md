@@ -1,4 +1,3 @@
-````markdown
 # 🤖 AI-RAG-Chatbot
 
 A professional Retrieval-Augmented Generation (RAG) based chatbot developed for the **Teyzix Core AI Internship Program (AI-2 Task)**.
@@ -105,7 +104,6 @@ OpenRouter LLM Response Generation
     ↓
 Answer + Source Citations Displayed
 ```
-````
 
 ---
 
